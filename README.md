@@ -20,8 +20,8 @@ In order to run this project:
  - [ ] Change python: 
      - [x] Check if info in hardcoded user info
      - [x] Check if user exists with redis
-     - [ ] Get user info from page
+     - [x] Get user info from page
      - [ ] Check correct user password
-     - [ ]
+     - [ ] Parse user input before putting it on shell command, with 
  - [ ] 
  - [ ] 
