@@ -5,6 +5,11 @@ import redis
 # Connect to Redis
 r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
+users = {
+    "user1": {"password": "password1", "email": "user1@mail.com"},
+    "user2": {"password": "password2", "email": "user2@mail.com"}
+}
+
 
 # Example function to track user connections
 def check_user_access(user_id):
@@ -12,6 +17,8 @@ def check_user_access(user_id):
     count = r.get(key)
 
     if count is None:
+        if user_id not in users:
+            return "Access denied. User does not exist."
         count = 0
     else:
         count = int(count)
@@ -25,5 +32,5 @@ def check_user_access(user_id):
 
 
 # Test the function
-user_id = "user123"
-print(check_user_access(user_id))
+print(check_user_access("user0"))
+print(check_user_access("user1"))

@@ -18,8 +18,10 @@ In order to run this project:
 ## ToDo
  - [ ] Catch user login data
  - [ ] Change python: 
-     - [ ] Check if user exists with redis
-     - [ ] Hardcode user info in python
+     - [x] Check if info in hardcoded user info
+     - [x] Check if user exists with redis
+     - [ ] Get user info from page
+     - [ ] Check correct user password
      - [ ]
  - [ ] 
  - [ ] 
