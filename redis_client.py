@@ -13,16 +13,14 @@ users = {
 
 
 # Example function to track user connections
-def check_user_access(user_id):
-    key = f"user:{user_id}:connections"
+def check_user_access(usr):
+    key = f"user:{usr}:connections"
     count = r.get(key)
 
     if count is None:
-        if user_id not in users:
-            return "Access denied. User does not exist."
-        count = 0
-    else:
-        count = int(count)
+        return "Application error"
+
+    count = int(count)
 
     if count < 10:
         r.incr(key)
@@ -32,7 +30,18 @@ def check_user_access(user_id):
         return "Access denied. Too many requests."
 
 
+def check_user_credentials(usr, pwd):
+    if user not in users or pwd != users[usr]["password"]:
+        print("Wrong username or password.")
+        return False
+    return True
 
-if len(sys.argv) >= 2:
+
+if len(sys.argv) >= 3:
     user = sys.argv[1]
-    print(check_user_access(user))
+    password = sys.argv[2]
+    if check_user_credentials(user, password):
+        print(check_user_access(user))
+
+else:
+    print("Please fill out all the fields")

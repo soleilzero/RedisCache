@@ -21,7 +21,7 @@ In order to run this project:
      - [x] Check if info in hardcoded user info
      - [x] Check if user exists with redis
      - [x] Get user info from page
-     - [ ] Check correct user password
+     - [x] Check correct user password
      - [ ] Parse user input before putting it on shell command, with 
  - [ ] 
  - [ ] 
