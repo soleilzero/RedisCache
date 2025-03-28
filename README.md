@@ -1,5 +1,8 @@
 # RedisCache
 
+This is a proof of concept project which checks that the credentials given on a  simple webpage are valid 
+and have not been overused in the last 10 minutes using a Redis Cache.
+
 ## Used tools
 * Python 3.11
 * Redis 7.0.15
