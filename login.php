@@ -12,7 +12,7 @@ Password: <input type="text" name="pwd"><br>
 $user_name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $pwd = filter_input(INPUT_POST, 'pwd', FILTER_SANITIZE_STRING);
 
-$cmd = escapeshellcmd("python3 redis_client.py $user_name $pwd");
+$cmd = escapeshellcmd("python3 authentication.py $user_name $pwd");
 
 $output = shell_exec($cmd);
 
