@@ -18,14 +18,13 @@ def check_user_access(usr):
     count = r.get(key)
 
     if count is None:
-        return "Application error"
-
+        count = 0
     count = int(count)
 
     if count < 10:
         r.incr(key)
         r.expire(key, 600)  # Set expiration to 10 minutes
-        return f"Access granted. {9 - count} attempts left."
+        return f"Access granted. {9 - count} connections left."
     else:
         return "Access denied. Too many requests."
 
